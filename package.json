@@ -1,8 +1,8 @@
 {
-  "name": "magicmirror-online-images-viewer",
+  "name": "magicmirror-online-image-viewer",
   "version": "0.1.1",
   "description": "Show images from URL",
-  "main": "MMM-OnlineImagesViewer.js",
+  "main": "MMM-OnlineImageViewer.js",
   "author": "Nicholas Rasi",
   "license": "MIT",
   "devDependencies": {}
