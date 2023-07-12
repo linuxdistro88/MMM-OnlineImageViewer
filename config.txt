@@ -61,10 +61,9 @@
 			"https://madzmagic.b-cdn.net/55.jpg",
 			"https://madzmagic.b-cdn.net/56.jpg"
 		],
-		random: false,
 		updateInterval: 60 * 5 * 1000, // every 5 mins
-		showAll: true,
-		maxWidth: "300px",
-		numColumns: 2
+		showAll: false,
+		maxWidth: "100%",
+		numColumns: 1
 	}
 },
