@@ -1,6 +1,6 @@
 /* global Module */
 
-Module.register("MMM-OnlineImagesViewer",{
+Module.register("MMM-OnlineImageViewer",{
 	defaults: {
 		opacity: 1,
 		animationSpeed: 500,
@@ -84,6 +84,6 @@ Module.register("MMM-OnlineImagesViewer",{
 	},
 
 	getScripts: function() {
-		return ["MMM-OnlineImagesViewer.css"]
+		return ["MMM-OnlineImageViewer.css"]
 	},
 });
