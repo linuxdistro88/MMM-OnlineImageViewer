@@ -1,11 +1,9 @@
 {
-	module: "MMM-OnlineImagesViewer",
+	module: "MMM-OnlineImageViewer",
 	position: "top center",
 	header: "IMAGES",
 	config: {
 		images: [
-			"https://www.meteolivevco.it/webcam/Gravellona-sud.jpg",
-			"https://www.meteolivevco.it/httpdocs/it/images/cam/gravellonatoce.jpg",
 			"https://madzmagic.b-cdn.net/1.jpg",
 			"https://madzmagic.b-cdn.net/2.jpg",
 			"https://madzmagic.b-cdn.net/3.jpg",
