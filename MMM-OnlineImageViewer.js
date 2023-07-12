@@ -7,79 +7,45 @@ Module.register("MMM-OnlineImageViewer",{
 		updateInterval: 60000,
 		maxWidth: "100%",
 		maxHeight: "100%",
-		showAll: true,
-		random: true,
+		showAll: false,
+		random: false,
 		numColumns: 1
 	},
 
 	start: function() {
 		var self = this;
 		this.images = this.config.images;
-		Log.info(this.config.updateInterval);
 		this.loaded = false;
-		this.lastImageIndex = 0;
-		this.gridColumns = Array(this.config.numColumns).fill('auto').join(' ');
+		this.currentIndex = 0;
 
 		// Schedule update timer
 		setInterval(function() {
 			self.updateDom(self.config.animationSpeed);
+			self.currentIndex = (self.currentIndex + 1) % self.images.length;
 		}, this.config.updateInterval);
-
-	},
-
-	randomIndex: function(images) {
-		if (images.length === 1) {
-			return 0;
-		}
-
-		var generate = function() {
-			return Math.floor(Math.random() * images.length);
-		};
-
-		var ImageIndex = generate();
-		while (this.images.length > 1 && ImageIndex == this.lastImageIndex) {
-			ImageIndex = generate();
-		}
-		this.lastImageIndex = ImageIndex;
-
-		return ImageIndex;
-	},
-
-	randomPhoto: function() {
-		var images = this.images;
-		var index = this.randomIndex(images);
-
-		return images[index];
 	},
 
 	getDom: function() {
 		var wrapper = document.createElement("div");
 		wrapper.style.display = "grid";
-		wrapper.style.gridTemplateColumns = this.gridColumns;
 		
-		if (this.config.showAll) {
-			this.images.forEach(photoImageUrl => {
-				this.appendImage(wrapper, photoImageUrl);
-			});
-		} else {
-			if (this.config.random) {
-				var photoImageUrl = this.randomPhoto();
-			} else {
-				var photoImageUrl = this.images[this.lastImageIndex];
-				this.lastImageIndex = (this.lastImageIndex+1) % this.images.length;
-			}
+		var photoImageUrl = this.images[this.currentIndex];
 
-			this.appendImage(wrapper, photoImageUrl);
-		}
+		this.appendImage(wrapper, photoImageUrl);
+		
 		return wrapper;
 	},
 
 	appendImage: function(wrapper, photoImageUrl) {
 		var img = document.createElement("img");
-		img.src = photoImageUrl + "?t=" + new Date().getTime();;
+		img.src = photoImageUrl + "?t=" + new Date().getTime();
 		img.style.maxWidth = this.config.maxWidth;
 		img.style.maxHeight = this.config.maxHeight;
 		img.style.opacity = this.config.opacity;
+		img.style.position = "absolute";
+		img.style.top = "50%";
+		img.style.left = "50%";
+		img.style.transform = "translate(-50%, -50%)";
 		wrapper.appendChild(img);
 	},
 
