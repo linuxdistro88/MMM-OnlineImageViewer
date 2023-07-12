@@ -1,4 +1,4 @@
-# MMM-OnlineImagesViewer
+# MMM-OnlineImageViewer
 This is a module for the [MagicMirror](https://github.com/MichMich/MagicMirror).
 
 - it shows images from a given list of online URLs
@@ -13,7 +13,7 @@ It can be used for example to show webcam images.
 1. Clone this repository inside your MagicMirror's `modules` folder
 ```
 cd ~/MagicMirror/modules
-git clone https://github.com/NicholasRasi/MMM-OnlineImagesViewer.git
+git clone https://github.com/NicholasRasi/MMM-OnlineImageViewer.git
 ```
 
 ## Config
@@ -35,7 +35,7 @@ The entry in `config.js` can include the following options:
 Here is an example of an entry in `config.js`
 ```
 {
-	module: "MMM-OnlineImagesViewer",
+	module: "MMM-OnlineImageViewer",
 	position: "top center",
 	header: "Webcams",
 	config: {
